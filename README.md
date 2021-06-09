@@ -100,8 +100,8 @@ One basic way to predict the bicycle location after \Delta{t}Δt is to assume th
 
 The x' = Fx + \nux′=Fx+ν equation does these prediction calculations for us.
 
-But maybe the object didn't maintain the exact same velocity. Maybe the object changed direction, accelerated or decelerated. So when we predict the position one second later, our uncertainty increases. P' = FPF^T + QP′=FPFT+Q represents this increase in uncertainty.
-Process noise refers to the uncertainty in the prediction step. We assume the object travels at a constant velocity, but in reality, the object might accelerate or decelerate. The notation \nu \sim N(0, Q)ν∼N(0,Q) defines the process noise as a gaussian distribution with mean zero and covariance Q.
+But maybe the object didn't maintain the exact same velocity. Maybe the object changed direction, accelerated or decelerated. So when we predict the position one second later, our uncertainty increases. P' = FP^T + QP′=FP+Q represents this increase in uncertainty.
+Process noise refers to the uncertainty in the prediction step. We assume the object travels at a constant velocity, but in reality, the object might accelerate or decelerate. The notation  N(0, Q)ν∼N(0,Q) defines the process noise as a gaussian distribution with mean zero and covariance Q.
 
 # Update
 
@@ -109,7 +109,7 @@ Now we get some sensor information that tells where the object is relative to th
 
 The KK matrix, often called the Kalman filter gain, combines the uncertainty of where we think we are P′ with the uncertainty of our sensor measurement R. If our sensor measurements are very uncertain (R is high relative to P'), then the Kalman filter will give more weight to where we think we are: x′. If where we think we are is uncertain (P' is high relative to R), the Kalman filter will put more weight on the sensor measurement: z.
 
-Measurement noise refers to uncertainty in sensor measurements. The notation \omega \sim N(0, R)ω∼N(0,R) defines the measurement noise as a gaussian distribution with mean zero and covariance R. Measurement noise comes from uncertainty in sensor measurements.
+Measurement noise refers to uncertainty in sensor measurements. The notation  N(0, R)ω ∼ N(0,R) defines the measurement noise as a gaussian distribution with mean zero and covariance R. Measurement noise comes from uncertainty in sensor measurements.
 
 
 
