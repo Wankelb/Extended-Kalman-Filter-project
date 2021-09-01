@@ -69,27 +69,27 @@ Kalman filtering is an algorithm that provides estimates of some unknown variabl
 The Kalman Filter algorithm will go through the following steps:
 
 
-•	first measurement - the filter will receive initial measurements of the bicycle's position relative to the car. These measurements will come from a radar or lidar sensor.
+•	**first measurement** - the filter will receive initial measurements of the bicycle's position relative to the car. These measurements will come from a radar or lidar sensor.
 
-•	initialize state and covariance matrices - the filter will initialize the bicycle's position based on the first measurement.
+•	**initialize state and covariance matrices** - the filter will initialize the bicycle's position based on the first measurement.
 
 •	then the car will receive another sensor measurement after a time period \Delta{t}Δt.
 
-•	predict - the algorithm will predict where the bicycle will be after time \Delta{t}Δt.
+•	**predict** - the algorithm will predict where the bicycle will be after time \Delta{t}Δt.
 One basic way to predict the bicycle location after \Delta{t}Δt is to assume the bicycle's velocity is constant; thus the bicycle will have moved velocity * \Delta{t}Δt. In the extended Kalman filter lesson, we will assume the velocity is constant.
 
-•	update - the filter compares the "predicted" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.
+•	**Update** - the filter compares the "predicted" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.
 •	then the car will receive another sensor measurement after a time period \Delta{t}Δt. The algorithm then does another predict and update step.
 
 
 ![](foto/3.png)
 
 
-•	x is the mean state vector. For an extended Kalman filter, the mean state vector contains information about the object's position and velocity that you are tracking. It is called the "mean" state vector because position and velocity are represented by a gaussian distribution with mean x.
+•	**x** is the mean state vector. For an extended Kalman filter, the mean state vector contains information about the object's position and velocity that you are tracking. It is called the "mean" state vector because position and velocity are represented by a gaussian distribution with mean x.
 
-•	P is the state covariance matrix, which contains information about the uncertainty of the object's position and velocity. You can think of it as containing standard deviations.
+•	**P** is the state covariance matrix, which contains information about the uncertainty of the object's position and velocity. You can think of it as containing standard deviations.
 
-•	k represents time steps. So x_k refers to the object's position and velocity vector at time k.
+•	**k** represents time steps. So x_k refers to the object's position and velocity vector at time k.
 
 •	The notation k+1|kk+1∣k refers to the prediction step. At time k+1k+1, you receive a sensor measurement. Before taking into account the sensor measurement to update your belief about the object's position and velocity, you predict where you think the object will be at time k+1k+1. You can predict the position of the object at k+1 based on its position and velocity at time kk. Hence x_{k+1|k}xk+1∣k means that you have predicted where the object will be at k+1 but have not yet taken the sensor measurement into account.
 
